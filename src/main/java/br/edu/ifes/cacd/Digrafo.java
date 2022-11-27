@@ -28,7 +28,9 @@
 package br.edu.ifes.cacd;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Esta classe implementa a representação do dígrafo com lista de adjacências.
@@ -43,6 +45,7 @@ public class Digrafo {
     private final int V;         // número de vértices no dígrafo
     private int A;               // número de arestas no dígrafo
     private List<Aresta>[] adj;  // adj[v1] = lista de adjacência do vértice v1
+    private Map<Integer, Integer> vertices; // mapeamento de vértices
 
     /**
      * Inicializa um dígrafo com V vertices e 0 arestas.
@@ -68,9 +71,24 @@ public class Digrafo {
      * @throws IllegalArgumentException se o número de vértices ou arestas for negativo
      */
     public Digrafo(In in) {
-        this(in.readInt());
+        int V = in.readInt();
+        if (V < 0) throw new IllegalArgumentException("Número de vértices no dígrafo deve ser não negativo");
+        this.V = V;
+        adj = new ArrayList[V];
+        for (int v = 0; v < V; v++)
+            adj[v] = new ArrayList<>();
+
         int A = in.readInt();
         if (A < 0) throw new IllegalArgumentException("Número de arestas deve ser não negativo");
+
+        this.vertices = new HashMap<>();
+        for (int i = 0; i < V; i++) {
+            int artigo = in.readInt();
+            if (artigo < 0 || artigo >= V) throw new IndexOutOfBoundsException("O artigo deve estar entre 0 e " + (V-1));
+            int autor = in.readInt();
+            this.vertices.put(artigo, autor);
+        }
+
         for (int i = 0; i < A; i++) {
             int v1 = in.readInt();
             int v2 = in.readInt();
@@ -144,6 +162,10 @@ public class Digrafo {
             }
         }
         return lista;
+    }
+
+    public Map<Integer, Integer> vertices() {
+        return vertices;
     }
 
     /**
