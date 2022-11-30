@@ -55,13 +55,13 @@ public class Main {
                 // Algoritmo de Menor Caminho
                 break;
             case 2:
-                // Algoritmo de Todos os Caminhos
+                AlgoritmoTodosCaminhos.run(scanner, G);
                 break;
             case 3:
                 // Algoritmo de Top Artigos
                 break;
             case 4:
-                // Algoritmo de Top Autores
+                AlgoritmoTopAutores.run(scanner, G);
                 break;
             default:
                 invalidOptionMenu();
