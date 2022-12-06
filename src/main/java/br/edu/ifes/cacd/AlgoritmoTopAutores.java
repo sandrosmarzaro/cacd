@@ -28,9 +28,9 @@ public class AlgoritmoTopAutores {
                     }
                 }
             }
-            for (Map.Entry<Integer, Integer> autor : autoresPorQtdCitacoes.entrySet()) {
-                System.out.println(autor.getKey() + " : " + autor.getValue());
-            }
+            autoresPorQtdCitacoes.entrySet().stream()
+                    .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
+                    .forEach(System.out::println);
 
             System.out.println("-".repeat(50));
             System.out.println("1 - Calcular Novamente\t\t0 - Voltar");
