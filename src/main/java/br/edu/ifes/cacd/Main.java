@@ -52,13 +52,13 @@ public class Main {
                 exitMenu(scanner);
                 break;
             case 1:
-                // Algoritmo de Menor Caminho
+                AlgoritimoMenorQtdArtigosLidos.run(scanner, G);
                 break;
             case 2:
                 AlgoritmoTodosCaminhos.run(scanner, G);
                 break;
             case 3:
-                // Algoritmo de Top Artigos
+                AlgoritmoTopArtigos.run(scanner, G);
                 break;
             case 4:
                 AlgoritmoTopAutores.run(scanner, G);
