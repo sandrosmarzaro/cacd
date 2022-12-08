@@ -48,24 +48,12 @@ public class Main {
 
     public static void processOption(Scanner scanner, int option) {
         switch (option) {
-            case 0:
-                exitMenu(scanner);
-                break;
-            case 1:
-                AlgoritimoMenorQtdArtigosLidos.run(scanner, G);
-                break;
-            case 2:
-                AlgoritmoTodosCaminhos.run(scanner, G);
-                break;
-            case 3:
-                AlgoritmoTopArtigos.run(scanner, G);
-                break;
-            case 4:
-                AlgoritmoTopAutores.run(scanner, G);
-                break;
-            default:
-                invalidOptionMenu();
-                break;
+            case 0 -> exitMenu(scanner);
+            case 1 -> AlgoritimoMenorQtdArtigosLidos.run(scanner, G);
+            case 2 -> AlgoritmoTodosCaminhos.run(scanner, G);
+            case 3 -> AlgoritmoTopArtigos.run(scanner, G);
+            case 4 -> AlgoritmoTopAutores.run(scanner, G);
+            default -> invalidOptionMenu();
         }
     }
 
